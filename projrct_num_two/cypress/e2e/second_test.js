@@ -4,7 +4,7 @@ Cypress.Commands.add("login", (user, password) => {
 
     cy.get('#customer_menu_top > li > a').click(); //click on regester button
     cy.get('#loginFrm_loginname').type(user); // type the email or the user name
-    cy.get('#loginFrm_password').type(password);// type the password
+    cy.get('#loginFrm_password').type(password); // type the password
 })
 describe('Add four items to cart then do the checkout ', () => {
     it('if checkout button is working correctlly', () => {
