@@ -1,13 +1,16 @@
 /// <reference types= "cypress" />
 
-Cypress.Commands.add("login", (user, password) => {})
+Cypress.Commands.add("login", (user, password) => {
 
+    cy.get('#customer_menu_top > li > a').click(); //click on regester button
+    cy.get('#loginFrm_loginname').type(user); // type the email or the user name
+    cy.get('#loginFrm_password').type(password);// type the password
+})
 describe('Add four items to cart then do the checkout ', () => {
-    it('if checkout button is working well', () => {
+    it('if checkout button is working correctlly', () => {
         cy.visit("https://www.automationteststore.com/");
-        cy.get('#customer_menu_top > li > a').click();
-        cy.get('#loginFrm_loginname').type('rawanabuzir');
-        cy.get('#loginFrm_password').type('rawan123456789');
+        cy.login('rawan', 'rawan123456789')
+
         cy.get(':nth-child(1) > .active').click();
         cy.get('#block_frame_latest_1770 > .thumbnails > :nth-child(1) > .thumbnail > .pricetag > .productcart > .fa').click();
         cy.get('#block_frame_latest_1770 > .thumbnails > :nth-child(2) > .thumbnail > .pricetag > .productcart > .fa').click();
