@@ -1,11 +1,13 @@
 /// <reference types= "cypress" />
 
-describe('Add to cart then do the checkout process', () => {
+Cypress.Commands.add("login", (user, password) => {})
+
+describe('Add four items to cart then do the checkout ', () => {
     it('if checkout button is working well', () => {
         cy.visit("https://www.automationteststore.com/");
         cy.get('#customer_menu_top > li > a').click();
-        cy.get('#loginFrm_loginname').type("rawanabuzir");
-        cy.get('#loginFrm_password').type("rawan123456789");
+        cy.get('#loginFrm_loginname').type('rawanabuzir');
+        cy.get('#loginFrm_password').type('rawan123456789');
         cy.get(':nth-child(1) > .active').click();
         cy.get('#block_frame_latest_1770 > .thumbnails > :nth-child(1) > .thumbnail > .pricetag > .productcart > .fa').click();
         cy.get('#block_frame_latest_1770 > .thumbnails > :nth-child(2) > .thumbnail > .pricetag > .productcart > .fa').click();
